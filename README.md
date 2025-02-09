@@ -19,10 +19,7 @@ This is a simple game where you try to guess the number in the least number of g
 ## Features
 
 - Multiplayer
-- Chat
 - Leaderboard
-- Achievements
-- Customizable
 - Easy to understand, hard to master
 - Fun and addictive
 - Great way to exercise your mind
