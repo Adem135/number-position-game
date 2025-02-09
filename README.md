@@ -1,9 +1,8 @@
 # Number Position Game
 
-![photo_2025-02-09_20-54-49](https://github.com/user-attachments/assets/6d5d3edf-6638-44c6-bbf1-163179df6122)
-![photo_2025-02-09_20-54-48](https://github.com/user-attachments/assets/7f2e6a09-295d-4a76-be32-e5caf4f5d3cb)
 ![photo_2025-02-09_20-54-47](https://github.com/user-attachments/assets/4e31fc73-a0c4-4f81-9974-88b1ac72367a)
-
+![Screenshot 2025-02-09 170034](https://github.com/user-attachments/assets/c82a0175-9744-4776-a1dc-25146ddd22f1)
+![photo_2025-02-09_20-54-48](https://github.com/user-attachments/assets/7f2e6a09-295d-4a76-be32-e5caf4f5d3cb)
 
 ## Description
 
