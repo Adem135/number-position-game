@@ -1,5 +1,8 @@
 # Number Position Game
 
+![photo_2025-02-09_20-54-49](https://github.com/user-attachments/assets/6d5d3edf-6638-44c6-bbf1-163179df6122)
+
+
 ## Description
 
 This is a simple game where you try to guess the number in the least number of guesses.
