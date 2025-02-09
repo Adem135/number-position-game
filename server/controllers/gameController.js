@@ -1,7 +1,10 @@
-const Game = require('../models/Game');  // Assuming you have a Game model for your game data
+// Import the Game model for accessing game data
+const Game = require('../models/Game');
+
+// Import the PlayerStat model for accessing user statistics
 const PlayerStat = require('../models/User');
 
-// Utility: generate a random 6-character game ID
+// Utility function to generate a random 6-character game ID
 const generateGameId = () => {
     return Math.random().toString(36).substring(2, 8);
 };
@@ -13,7 +16,7 @@ const isValidSecretCode = (code) => {
     return digits.size === 4;
 };
 
-// Helper: calculate numbers correct and positions correct
+// Helper function to calculate numbers correct and positions correct
 const calculateNumbersAndPositions = (secret, guess) => {
     let numbersCorrect = 0;
     let positionsCorrect = 0;
@@ -30,7 +33,7 @@ const calculateNumbersAndPositions = (secret, guess) => {
     return { numbersCorrect, positionsCorrect };
 };
 
-// Helper: Update leaderboard stats (wins, losses, draws) for both players.
+// Helper function to update leaderboard stats (wins, losses, draws) for both players
 const updateLeaderboard = async (game) => {
     console.log(`Updating leaderboard for game ${game.gameId}...`);
     if (game.leaderboardUpdated) {
@@ -108,6 +111,7 @@ const joinGame = async (req, res) => {
     }
 };
 
+// Calculate the elapsed time since the game started
 const getElapsedTime = async (gameId) => {
     const game = await Game.findOne({ gameId });
     if (!game || !game.startTime) return 0;
@@ -117,8 +121,8 @@ const getElapsedTime = async (gameId) => {
     return elapsedTime;
 };
 
-// Set the secret code for a player.
-// When both secret codes are set, update status to in-progress and set turn to the creator.
+// Set the secret code for a player
+// When both secret codes are set, update status to in-progress and set turn to the creator
 const setSecretCode = async (req, res) => {
     try {
         const { gameId, playerName, secretCode } = req.body;
@@ -146,7 +150,7 @@ const setSecretCode = async (req, res) => {
             }
             game.secretCode2 = secretCode;
         }
-        // When both secret codes are set, update status to in-progress and set turn to creator.
+        // When both secret codes are set, update status to in-progress and set turn to creator
         if (game.secretCode1 && game.secretCode2) {
             game.status = 'in-progress';
             game.turn = game.players[0]; // creator starts first
@@ -160,7 +164,7 @@ const setSecretCode = async (req, res) => {
 };
 
 // Submit a guess by a player (only allowed if it is that player's turn)
-// New guesses are added on top. Also, we check for perfect guesses and determine the game outcome.
+// New guesses are added on top. Also, we check for perfect guesses and determine the game outcome
 const submitGuess = async (req, res) => {
     try {
         const { gameId, player, guess } = req.body;
@@ -175,11 +179,11 @@ const submitGuess = async (req, res) => {
             await updateLeaderboard(game);
             return res.status(400).json({ message: "Game already finished." });
         }
-        // Enforce turn-based guessing:
+        // Enforce turn-based guessing
         if (game.turn !== player) {
             return res.status(400).json({ message: "It's not your turn." });
         }
-        // Determine opponent secret code:
+        // Determine opponent secret code
         let opponentSecret;
         if (game.players[0] === player) {
             opponentSecret = game.secretCode2;
@@ -192,7 +196,7 @@ const submitGuess = async (req, res) => {
             return res.status(400).json({ message: 'Opponent secret code not set yet' });
         }
         const result = calculateNumbersAndPositions(opponentSecret, guess);
-        // Add the new guess on top of the guesses array:
+        // Add the new guess on top of the guesses array
         game.guesses.unshift({
             player,
             guess,
@@ -206,11 +210,11 @@ const submitGuess = async (req, res) => {
         if (perfect) {
             if (player === game.players[0]) { // Player 1 (creator)
                 game.perfect1 = true;
-                // Allow Player 2 one more turn by switching turn.
+                // Allow Player 2 one more turn by switching turn
                 game.turn = game.players[1];
             } else { // Player 2 (joiner)
                 game.perfect2 = true;
-                // Decide outcome: if Player 1 had a perfect guess, it's a draw; otherwise, Player 2 wins.
+                // Decide outcome: if Player 1 had a perfect guess, it's a draw; otherwise, Player 2 wins
                 if (game.perfect1) {
                     game.winner = "draw";
                 } else {
@@ -220,14 +224,14 @@ const submitGuess = async (req, res) => {
                 game.loser = game.players[0] === game.winner ? game.players[1] : game.players[0];
             }
         } else {
-            // If it is Player 2’s turn and Player 1 had already made a perfect guess,
-            // then if Player 2 does not get a perfect guess, Player 1 wins.
+            // If it is Player 2's turn and Player 1 had already made a perfect guess,
+            // then if Player 2 does not get a perfect guess, Player 1 wins
             if (player === game.players[1] && game.perfect1) {
                 game.winner = game.players[0];
                 game.loser = game.players[1];
                 game.status = "finished";
             } else {
-                // Otherwise, update turn normally.
+                // Otherwise, update turn normally
                 if (game.turn === game.players[0]) {
                     game.turn = game.players[1];
                 } else {
@@ -238,7 +242,7 @@ const submitGuess = async (req, res) => {
 
         await game.save();
 
-        // If the game has finished, update the leaderboard stats.
+        // If the game has finished, update the leaderboard stats
         if (game.status === "finished") {
             await updateLeaderboard(game);
         }
@@ -249,7 +253,6 @@ const submitGuess = async (req, res) => {
         return res.status(500).json({ message: 'Error submitting guess' });
     }
 };
-
 
 // Endpoint to mark the game as ended when a player quits (endGame)
 const endGame = async (req, res) => {
@@ -266,7 +269,6 @@ const endGame = async (req, res) => {
         // Ensure the game is in progress before ending
         if (game.status === 'finished') {
             return res.status(400).json({ message: 'Game has already ended' });
-
         }
 
         // Update the game to "finished" status
@@ -276,7 +278,7 @@ const endGame = async (req, res) => {
 
         await game.save();
 
-        // Update leaderboard stats if not already updated.
+        // Update leaderboard stats if not already updated
         await updateLeaderboard(game);
 
         return res.status(200).json({ message: 'Game ended successfully', winner, loser });
@@ -312,7 +314,7 @@ const quitGame = async (req, res) => {
 
         await game.save();
 
-        // Update leaderboard stats if not already updated.
+        // Update leaderboard stats if not already updated
         await updateLeaderboard(game);
 
         return res.status(200).json({ message: `${player} ended the game. ${opponent} is the winner.` });
@@ -337,6 +339,7 @@ const getGameData = async (req, res) => {
     }
 };
 
+// Export the controller functions for use in routes
 module.exports = {
     startGame,
     joinGame,

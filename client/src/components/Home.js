@@ -53,7 +53,7 @@ const Home = () => {
                     <Link to="/about">About</Link>
                     <Link to="/leaderboard">Leaderboard</Link>
                     <a
-                        href="https://github.com/yourusername/number-position-game"
+                        href="https://github.com/Adem135/number-position-game"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
