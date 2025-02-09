@@ -1,0 +1,128 @@
+/* src/components/Auth.css */
+body {
+    background-color: #1a1a1a;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.auth-container {
+    max-width: 400px;
+    margin: 5rem auto;
+    padding: 3rem 2.5rem;
+    background: rgba(26, 26, 26, 0.95);
+    border-radius: 16px;
+    box-shadow: 0 0 40px rgba(0, 243, 255, 0.2);
+    border: 1px solid rgba(0, 243, 255, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Keep all other styles the same as previous version */
+.auth-container::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg,
+            transparent,
+            rgba(0, 243, 255, 0.1),
+            transparent);
+    transform: rotate(45deg);
+    pointer-events: none;
+}
+
+.auth-container h2 {
+    color: #00f3ff;
+    font-family: 'Orbitron', sans-serif;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    text-shadow: 0 0 10px rgba(0, 243, 255, 0.4);
+}
+
+
+.auth-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.auth-container input {
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(0, 243, 255, 0.3);
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.auth-container input:focus {
+    outline: none;
+    border-color: #00f3ff;
+    box-shadow: 0 0 15px rgba(0, 243, 255, 0.2);
+}
+
+.auth-container input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.auth-container button {
+    padding: 1rem;
+    background: #00f3ff;
+    color: #1a1a1a;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.auth-container button:hover {
+    background: #00d9e6;
+    box-shadow: 0 0 20px rgba(0, 243, 255, 0.4);
+}
+
+.auth-container p {
+    text-align: center;
+    margin-top: 1.5rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.auth-container a {
+    color: #00f3ff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.auth-container a:hover {
+    text-shadow: 0 0 10px rgba(0, 243, 255, 0.4);
+}
+
+.error-msg {
+    color: #ff4444;
+    background: rgba(255, 68, 68, 0.1);
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid #ff4444;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 480px) {
+    .auth-container {
+        margin: 2rem 1rem;
+        padding: 2rem 1.5rem;
+    }
+
+    .auth-container h2 {
+        font-size: 1.75rem;
+    }
+}

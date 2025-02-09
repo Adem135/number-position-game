@@ -1,0 +1,84 @@
+/* Add to top of JoinGame.css */
+@import './Home.css';
+
+/* src/components/JoinGame.css */
+.join-game-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    font-family: 'Roboto', sans-serif;
+}
+
+.join-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    width: 100%;
+}
+
+.code-input {
+    width: 100%;
+    padding: 0.8rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid #00f3ff;
+    border-radius: 6px;
+    color: #ffffff;
+    font-size: 1.2rem;
+    text-align: center;
+    letter-spacing: 0.2em;
+    font-family: 'Orbitron', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.code-input:focus {
+    outline: none;
+    box-shadow: 0 0 15px rgba(0, 243, 255, 0.3);
+}
+
+.join-btn {
+    background: transparent;
+    color: #00f3ff;
+    border: 2px solid #00f3ff;
+    padding: 0.8rem 2rem;
+    width: 100%;
+}
+
+.join-btn:hover:not(:disabled) {
+    background: rgba(0, 243, 255, 0.1);
+    box-shadow: 0 0 15px rgba(0, 243, 255, 0.3);
+}
+
+.join-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* Reuse styles from Home.css */
+.nav-bar,
+.main-content,
+.game-card,
+.player-info,
+.player-label,
+.player-name,
+.alert,
+.error,
+.info,
+.footer,
+.copyright {
+    /* Same styles as Home.css */
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .code-input {
+        font-size: 1rem;
+        padding: 0.8rem;
+    }
+
+    .join-panel h2 {
+        font-size: 1.3rem;
+    }
+}

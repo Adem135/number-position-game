@@ -1,0 +1,404 @@
+/* src/components/HowToPlay.css */
+.how-to-play-container {
+    min-height: 100vh;
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+    font-family: 'Roboto', sans-serif;
+    line-height: 2;
+
+}
+
+.step-game-screenshot {
+    margin: 2rem 0;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.feedback-display {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.6rem;
+    flex-direction: column;
+}
+
+
+/* Navigation Styles */
+
+.nav-bar {
+    padding: 1rem 2rem;
+
+    background: rgba(0, 0, 0, 0.9);
+    border-bottom: 2px solid #00f3ff;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.8rem;
+    color: #00f3ff;
+    text-shadow: 0 0 15px rgba(0, 243, 255, 0.4);
+}
+
+.nav-links {
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: #fff !important;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #00f3ff !important;
+    text-shadow: 0 0 10px rgba(0, 243, 255, 0.4);
+}
+
+/* Step Cards */
+.step-card {
+    background: linear-gradient(145deg, rgba(0, 0, 0, 0.8), rgba(20, 20, 20, 0.8));
+    border: 2px solid #00f3ff;
+    border-radius: 12px;
+    box-shadow: 0 0 30px rgba(0, 243, 255, 0.1);
+    margin: 2rem 0;
+    padding: 2rem;
+}
+
+.step-header {
+    border-bottom: 2px solid #00f3ff;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+}
+
+.step-number {
+    font-family: 'Orbitron', sans-serif;
+    color: #8a2be2;
+    font-size: 2.5rem;
+    text-shadow: 0 0 15px rgba(138, 43, 226, 0.4);
+}
+
+.step-title {
+    font-family: 'Orbitron', sans-serif;
+    color: #00f3ff;
+    font-size: 1.8rem;
+}
+
+/* Instruction Cards */
+.instruction-card {
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(0, 243, 255, 0.2);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.instruction-title {
+    color: #00f3ff;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.instruction-icon {
+    width: 30px;
+    height: 30px;
+    background: rgba(0, 243, 255, 0.1);
+    border: 1px solid #00f3ff;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.8rem;
+}
+
+/* Rules Grid */
+.rules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.rule-card {
+    padding: 1.5rem;
+    border-radius: 10px;
+}
+
+.requirement-card {
+    background: rgba(0, 243, 255, 0.05);
+    border: 1px solid #00f3ff;
+}
+
+.example-card {
+    background: rgba(138, 43, 226, 0.05);
+    border: 1px solid #8a2be2;
+}
+
+.rule-header {
+    border-bottom: 1px solid currentColor;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+}
+
+.rule-icon {
+    font-family: 'Orbitron', sans-serif;
+    color: #00f3ff;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Number Examples */
+.number-examples {
+    display: grid;
+    gap: 1rem;
+}
+
+.example-group h5 {
+    color: #00f3ff;
+    margin: 1rem 0;
+}
+
+.number-display {
+    display: flex;
+    gap: 0.5rem;
+    padding: 0.8rem;
+    border-radius: 8px;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.number-display.valid {
+    background: rgba(0, 255, 0, 0.05);
+    border: 1px solid #00ff00;
+    color: #00ff00;
+}
+
+.number-display.invalid {
+    background: rgba(255, 0, 0, 0.05);
+    border: 1px solid #ff0000;
+    color: #ff0000;
+}
+
+.number-display span {
+    width: 30px;
+    height: 30px;
+    border: 1px solid currentColor;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Gameplay Section */
+.gameplay-phase {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.phase-card {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid #00f3ff;
+    border-radius: 10px;
+    padding: 1.5rem;
+}
+
+.phase-step {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin: 1.5rem 0;
+}
+
+.phase-number {
+    width: 35px;
+    height: 35px;
+    background: #00f3ff;
+    color: #1a1a1a;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Orbitron', sans-serif;
+    flex-shrink: 0;
+}
+
+.feedback-key {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    flex-direction: column;
+}
+
+.feedback-tag {
+    padding: 0.3rem 0.8rem;
+    border-radius: 5px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.9rem;
+}
+
+.correct-digit {
+    background: rgba(0, 255, 0, 0.1);
+    border: 1px solid #00ff00;
+    color: #00ff00;
+}
+
+.correct-position {
+    background: rgba(0, 243, 255, 0.1);
+    border: 1px solid #00f3ff;
+    color: #00f3ff;
+}
+
+/* Notices and Tips */
+.important-notice {
+    background: rgba(255, 165, 0, 0.05);
+    border: 1px solid #ffa500;
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin: 2rem 0;
+    display: flex;
+    gap: 1rem;
+}
+
+.notice-icon {
+    color: #ffa500;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.2rem;
+    width: 3px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.pro-tip {
+    background: rgba(138, 43, 226, 0.05);
+    border: 1px solid #8a2be2;
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin: 2rem 0;
+}
+
+/* Lists */
+.styled-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.styled-list li {
+    margin: 0.8rem 0;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.styled-list li::before {
+    content: '▹';
+    color: #00f3ff;
+    position: absolute;
+    left: 0;
+}
+
+.styled-list.numbered {
+    list-style-type: none;
+    counter-reset: step-counter;
+}
+
+.styled-list.numbered li {
+    counter-increment: step-counter;
+}
+
+.styled-list.numbered li::before {
+    content: counter(step-counter) ".";
+    color: #00f3ff;
+    font-family: 'Orbitron', sans-serif;
+    margin-right: 0.8rem;
+}
+
+.motivation-section {
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid #00f3ff;
+    border-radius: 12px;
+    padding: 2rem;
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.motivation-section h3 {
+    color: #00f3ff;
+    margin-bottom: 1rem;
+}
+
+.play-now-btn {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 1rem 2rem;
+    background: #00f3ff;
+    color: #1a1a1a;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.play-now-btn:hover {
+    background: #00d9e6;
+    box-shadow: 0 0 20px rgba(0, 243, 255, 0.4);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-bar {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .step-card {
+        padding: 1rem;
+    }
+
+    .instruction-title {
+        font-size: 1.2rem;
+    }
+
+    .phase-step {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+.main-title {
+    text-align: center;
+    margin: auto;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #00f3ff;
+    text-shadow: 0 0 10px rgba(0, 243, 255, 0.4);
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    font-family: 'Orbitron', sans-serif;
+}
+
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 1.8rem;
+    }
+
+    .step-number {
+        font-size: 2rem;
+    }
+
+    .step-title {
+        font-size: 1.4rem;
+    }
+}

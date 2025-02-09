@@ -1,0 +1,244 @@
+/* src/components/GamePageCreator.css */
+@import './Home.css';
+
+.game-container {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.game-main {
+    flex: 1;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.game-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.game-title {
+    font-family: 'Orbitron', sans-serif;
+    color: #00f3ff;
+}
+
+.code {
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 0.1em;
+    color: #00f3ff;
+}
+
+.status-badge {
+    padding: 0.5rem 1rem;
+    background: rgba(0, 243, 255, 0.1);
+    border: 1px solid #00f3ff;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+.secret-code-display {
+    text-align: center;
+    margin: 2rem 0;
+    font-size: 1.2rem;
+}
+
+.guess-history-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.guess-column {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid #00f3ff33;
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+.column-title {
+    color: #00f3ff;
+    margin-bottom: 1rem;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.guess-table {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: #00f3ff33;
+}
+
+.table-header,
+.table-row {
+    display: contents;
+}
+
+.table-header>div {
+    background: #00f3ff;
+    color: #1a1a1a;
+    padding: 1rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.table-row>div {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.correct-count {
+    color: #00f3ff;
+    font-weight: bold;
+}
+
+.empty-state {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 2rem;
+    color: #888;
+}
+
+.guess-input-section {
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.guess-form {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.guess-input {
+    width: 200px;
+    padding: 1rem;
+    font-size: 1.2rem;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid #00f3ff;
+    border-radius: 8px;
+    color: #fff;
+}
+
+.submit-guess-btn {
+    background: #00f3ff;
+    color: #1a1a1a;
+    padding: 1rem 2rem;
+    transition: all 0.3s ease;
+}
+
+.submit-guess-btn:hover:not(:disabled) {
+    background: #00d9e6;
+    box-shadow: 0 0 15px rgba(0, 243, 255, 0.4);
+}
+
+.waiting-turn {
+    color: #00f3ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.pulse-dot {
+    width: 10px;
+    height: 10px;
+    background: #00f3ff;
+    border-radius: 50%;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.9);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(0.9);
+    }
+}
+
+.outcome-banner {
+    background: rgba(0, 243, 255, 0.1);
+    border: 2px solid #00f3ff;
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    margin: 2rem 0;
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.confetti {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 1rem;
+}
+
+.guess-feedback {
+    text-align: center;
+    margin-top: 1rem;
+    color: #00f3ff;
+}
+
+@media (max-width: 768px) {
+    .guess-history-container {
+        grid-template-columns: 1fr;
+    }
+
+    .guess-form {
+        flex-direction: column;
+    }
+
+    .guess-input {
+        width: 100%;
+    }
+}
+
+/* Secret Code Reveal Section */
+.secret-code-reveal {
+    background: rgba(0, 243, 255, 0.1);
+    border: 2px solid #00f3ff;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 1.2rem;
+}
+
+.secret-code-reveal h3 {
+    font-family: 'Orbitron', sans-serif;
+    color: #00f3ff;
+    margin-bottom: 1rem;
+}
+
+.secret-code-reveal p {
+    margin: 0.5rem 0;
+}
+
+.secret-code-reveal .code {
+    font-family: 'Orbitron', sans-serif;
+    color: #00f3ff;
+    letter-spacing: 0.1em;
+}

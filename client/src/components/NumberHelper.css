@@ -1,0 +1,99 @@
+/* src/components/NumberHelper.css */
+.number-helper-container {
+    margin-top: 2rem;
+    padding: 0.5rem;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid #00f3ff33;
+    border-radius: 8px;
+}
+
+.helper-title {
+    color: #00f3ff;
+    font-family: 'Orbitron', sans-serif;
+    margin-bottom: 0.5rem;
+}
+
+.helper-subtitle {
+    color: #888;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.number-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 65px;
+}
+
+.number-btn {
+    position: relative;
+    aspect-ratio: 1;
+    border: 2px solid #00f3ff;
+    background: rgba(0, 243, 255, 0.05);
+    color: #00f3ff;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.number-btn:hover {
+    background: rgba(0, 243, 255, 0.1);
+    transform: translateY(-2px);
+    box-shadow: 0 0 10px rgba(0, 243, 255, 0.2);
+}
+
+.number-btn.eliminated {
+    border-color: #ff0000;
+    color: #ff4444;
+    background: rgba(255, 0, 0, 0.05);
+}
+
+.elimination-effect {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    height: 2px;
+    background: #ff0000;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    animation: eliminate 0.3s ease-out;
+}
+
+@keyframes eliminate {
+    0% {
+        width: 0;
+    }
+
+    100% {
+        width: 80%;
+    }
+}
+
+/* Adding diagonal line style */
+.cross-line {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.cross-line::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: #ff4444;
+    transform: translateY(-50%) rotate(-45deg);
+}
+
+@media (max-width: 768px) {
+    .number-grid {
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+    .number-btn {
+        font-size: 1.2rem;
+    }
+}

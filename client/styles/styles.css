@@ -1,0 +1,33 @@
+.homepage {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.homepage h1 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+}
+
+.homepage p {
+    font-size: 1.2rem;
+    color: #7f8c8d;
+}
+
+.game-options {
+    margin-top: 20px;
+}
+
+.game-options .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 1rem;
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.game-options .btn:hover {
+    background-color: #2980b9;
+}
